@@ -1,0 +1,9 @@
+# comment -- ignore directories
+.vs/
+bin/
+bin-Int/
+
+# comment -- ignore files that ends with
+*.user
+
+
