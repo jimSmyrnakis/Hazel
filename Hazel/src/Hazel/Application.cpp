@@ -14,7 +14,7 @@ namespace Hazel
 
 	void Application::Run(void)
 	{
-		std::cout << "Welcome to Hazel Game Engine !" << std::endl;
+		
 		while (true);
 	}
 }
