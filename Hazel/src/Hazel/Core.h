@@ -1,5 +1,6 @@
 #pragma once
 
+#define BIT(num) (0x00000001<<(num)) 
 
 #ifdef HZ_PLATFORM_WINDOWS
 

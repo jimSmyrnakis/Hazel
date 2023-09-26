@@ -1,8 +1,9 @@
 #pragma once
-#include <memory>
+
 #include "Core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/fmt/ostr.h"
 
 namespace Hazel
 {
@@ -11,8 +12,8 @@ namespace Hazel
 	public:
 		static void Init(void);
 
-		inline static std::shared_ptr<spdlog::logger>& getCoreLogger(void);//logger for hazel engine dll debuging
-		inline static std::shared_ptr<spdlog::logger>& getClientLogger(void);//logger for client use this dll
+		inline static std::shared_ptr<spdlog::logger>& getCoreLogger(void) { return Log::s_CoreLogger; }//logger for hazel engine dll debuging
+		inline static std::shared_ptr<spdlog::logger>& getClientLogger(void) { return Log::s_ClientLogger; }//logger for client use this dll
 
 	private:
 		static std::shared_ptr<spdlog::logger> s_CoreLogger;
@@ -21,7 +22,7 @@ namespace Hazel
 
 }
 
-//dll hazel macros - core macros
+//dll hazel application macros - core macros
 #define HZ_CORE_WARN(...)  Hazel::Log::getCoreLogger()->warn(__VA_ARGS__)
 #define HZ_CORE_INFO(...)  Hazel::Log::getCoreLogger()->info(__VA_ARGS__)
 #define HZ_CORE_ERROR(...) Hazel::Log::getCoreLogger()->error(__VA_ARGS__)
